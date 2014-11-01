@@ -2,5 +2,4 @@
 
 base:
   '*':
-    - foundation
-    - mono
+    - desktop
