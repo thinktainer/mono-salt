@@ -12,7 +12,7 @@ installer:
 
 setup_lein:
   cmd.run:
-    - name: /home/vagrant/bin/lein > /dev/null 2>&1
+    - name: /home/vagrant/bin/lein > /dev/null
     - cwd: /home/vagrant/bin
     - user: vagrant
     - group: vagrant
