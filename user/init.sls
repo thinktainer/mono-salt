@@ -1,5 +1,6 @@
 include:
   - devtools
+  - oh_my_zsh
 
 chsh -s /bin/zsh vagrant:
   cmd.run
@@ -11,11 +12,4 @@ zshenv:
     - group: vagrant
     - mode: 644
     - source: salt://user/zshenv
-zshrc:
-  file.managed:
-    - name: /home/vagrant/.zshrc
-    - user: vagrant
-    - group: vagrant
-    - mode: 644
-    - source: salt://user/zshrc
 

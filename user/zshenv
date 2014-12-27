@@ -1,3 +1,3 @@
 fpath=( "$HOME/.zshfunctions/" $fpath )
-path=( "$HOME/.bin" $path )
+path=( "$HOME/bin" $path )
 

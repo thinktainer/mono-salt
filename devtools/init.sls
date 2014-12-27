@@ -3,7 +3,11 @@ mypkgs:
     - pkgs:
       - vim
       - zsh
-      - git
+      - curl
+      - tmux
+
+git:
+  pkg.installed
 
 prompt_pure:
   file.managed:
