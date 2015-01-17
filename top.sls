@@ -8,3 +8,10 @@ base:
     - lein
     - devtools
 
+  'node_type:java_development':
+    - match: grain
+    - webupd8java
+    - intellij
+    - gradle
+    - user
+
