@@ -15,3 +15,10 @@ base:
     - gradle
     - user
 
+  'node_type:scala_development':
+    - match: grain
+    - webupd8java
+    - scala
+    - intellij
+    - gradle
+    - user

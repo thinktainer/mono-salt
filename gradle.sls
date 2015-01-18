@@ -29,7 +29,7 @@ gradle_dir:
     - mode: 755
     - require:
       - archive: gradle
-    - recurs:
+    - recurse:
       - user
       - group
 
