@@ -1,6 +1,6 @@
 # vim: syntax=yaml:ts=2:sw=2:expandtab
 
-{% set user = pillar.get('developer-user', 'vagrant') %}
+{% set user = pillar.get('developer_user', 'vagrant') %}
 {% set intellij_archive_name = pillar.get('intellij_archive_name', 'ideaIC-14.0.2.tar.gz') %}
 {%set intellij_install_folder = pillar.get('intellij_install_folder', 'idea-IC-139.659.2')%}
     
@@ -32,4 +32,15 @@ chown_intellij:
     - cwd: /home/{{user}}
     - user: {{user}}
     - group: {{user}}
+
+/home/{{user}}/.local/share/applications/IntellijIDEA.desktop:
+  file.managed:
+    - source: salt://intellij/files/intellij.desktop
+    - user: {{user}}
+    - group: {{user}}
+    - mode: 755
+    - makedirs: True
+    - template: jinja
+    - defaults:
+        developer_user: vagrant
 

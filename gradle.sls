@@ -1,9 +1,12 @@
 # vim: syntax=yaml:ts=2:sw=2:expandtab
 
-{% set user = pillar.get('developer-user', 'vagrant') %}
+{% set user = pillar.get('developer_user', 'vagrant') %}
 {% set gradle_version = pillar.get('gradle_version', '2.2.1') %}
 {% set archive_name = pillar.get('gradle_archive_name', "gradle-" ~ gradle_version ~ '-all.zip') %}
 {% set install_folder = 'gradle-' ~ gradle_version %}
+
+include:
+  - webupd8java
 
 /home/{{user}}/lib:
   file.directory:
@@ -20,6 +23,8 @@ gradle:
     - archive_format: zip
     - archive_user: {{user}}
     - if_missing: /home/{{user}}/lib/{{install_folder}}
+    - require:
+      - sls: webupd8java
 
 gradle_dir:
   file.directory:

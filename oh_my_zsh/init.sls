@@ -16,4 +16,5 @@ https://github.com/robbyrussell/oh-my-zsh.git:
     - user: vagrant
     - group: vagrant
     - mode: 644
-    
+    - template: jinja
+
