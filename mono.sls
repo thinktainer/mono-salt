@@ -54,9 +54,33 @@ autogen-fsharp:
       
 make-fsharp:
   cmd.run:
-    - name: make
+    - name: make -j `nproc`
     - cwd: /home/vagrant/build/fsharp
     - user: vagrant
     - require:
       - cmd: autogen-fsharp
-        
+
+install-fsharp:
+  cmd.run:
+    - name: make install
+    - cwd: /home/vagrant/build/fsharp
+    - user: root
+    - require:
+      - cmd: make-fsharp
+
+clean-sourcetree:
+  cmd.run:
+    - name: make clean
+    - cwd: /home/vagrant/build/fsharp
+    - user: vagrant
+    - require:
+      - cmd: install-fsharp
+
+remove-buildutils:
+  pkg.removed:
+    - pkgs:
+      - autoconf
+      - build-essential
+    - require:
+      - cmd: clean-sourcetree
+
