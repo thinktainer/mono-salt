@@ -1,0 +1,7 @@
+# vim: ft=yaml:ts=2:sw=2:expandtab
+{% set user_path = pillar.get('user_path') %}
+fpath=( "$HOME/.zshfunctions/" $fpath )
+path=( {{user_path}} )
+editor=/usr/bin/vim
+visual=/usr/bin/vim
+

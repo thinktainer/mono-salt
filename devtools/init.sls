@@ -1,9 +1,18 @@
+# vim: syntax=yaml:ts=2:sw=2:expandtab
+
+include:
+  - devtools.dotfiles
+
 mypkgs:
   pkg.installed:
     - pkgs:
       - vim
       - zsh
-      - git
+      - curl
+      - tmux
+
+git:
+  pkg.installed
 
 prompt_pure:
   file.managed:

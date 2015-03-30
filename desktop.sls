@@ -3,6 +3,4 @@
 desktop-pkgs:
   pkg.installed:
     - pkgs:
-      - lubuntu-core
-      - lubuntu-icon-theme
-      - lubuntu-restricted-extras
+      - task-lxde-desktop
