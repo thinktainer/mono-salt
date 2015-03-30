@@ -8,6 +8,11 @@
 include:
   - webupd8java
 
+unzip:
+  pkg.installed:
+    - require_in:
+      gradle: archive.extracted
+
 /home/{{user}}/lib:
   file.directory:
     - user: {{user}}

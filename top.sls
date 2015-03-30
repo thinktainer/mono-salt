@@ -11,6 +11,7 @@ base:
   'node_type:java_development':
     - match: grain
     - webupd8java
+    - desktop
     - intellij
     - gradle
     - user
@@ -22,3 +23,18 @@ base:
     - intellij
     - gradle
     - user
+
+  'node_type:datastax_opscenter':
+    - match: grain
+    - webupd8java
+    - datastax.opscenter
+
+  'node_type:cassandra_node':
+    - match: grain
+    - webupd8java
+    - datastax.repo
+
+  'node_type:elasticsearch':
+    - match: grain
+    - elasticsearch
+
