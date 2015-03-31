@@ -1,4 +1,4 @@
-# vim: syntax=yaml:ts=2:sw=2:expandtab
+# vim: ft=sls:ts=2:sw=2:expandtab
 base:
   pkgrepo.managed:
     - humanname: Xamarin Mono deb

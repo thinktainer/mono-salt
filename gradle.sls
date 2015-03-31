@@ -1,4 +1,4 @@
-# vim: syntax=yaml:ts=2:sw=2:expandtab
+# vim: ft=sls:ts=2:sw=2:expandtab
 
 {% set user = pillar.get('developer_user', 'vagrant') %}
 {% set gradle_version = pillar.get('gradle_version', '2.2.1') %}

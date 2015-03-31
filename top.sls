@@ -1,4 +1,4 @@
-# vim: syntax=yaml:ts=2:sw=2:expandtab
+# vim: ft=sls:ts=2:sw=2:expandtab
 
 base:
   'node_type:clojure_development':
@@ -37,4 +37,11 @@ base:
   'node_type:elasticsearch':
     - match: grain
     - elasticsearch
+
+  'node_type:es_kafka_devbox':
+    - match: grain
+    - elasticsearch
+    - kafka
+    - redis
+    - logstash
 
