@@ -28,4 +28,5 @@ elasticsearch:
   service.running:
     - require:
       - sls: webupd8java
+    - enable: True
 

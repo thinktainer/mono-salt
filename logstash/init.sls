@@ -34,5 +34,7 @@ logstash:
   service.running:
     - require:
       - sls: webupd8java
-    
+      - service: redis-server
+      - service: elasticsearch
+    - enable: True
 

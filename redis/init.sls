@@ -12,6 +12,7 @@ redis-server:
   service.running:
     - watch:
       - file: /etc/redis/redis.conf
+    - enable: True
 
 /etc/redis/redis.conf:
   file.replace:
@@ -19,3 +20,4 @@ redis-server:
     - repl: bind 0.0.0.0
     - require:
       - pkg: redis-server
+

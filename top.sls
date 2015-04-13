@@ -24,6 +24,11 @@ base:
     - gradle
     - user
 
+  'node_type:python_development':
+    - match: grain
+    - webupd8java
+    - user
+
   'node_type:datastax_opscenter':
     - match: grain
     - webupd8java
