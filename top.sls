@@ -50,3 +50,9 @@ base:
     - redis
     - logstash
 
+  'node_type:logging_old_dev':
+    - match: grain
+    - redis
+    - logstash
+    - elasticsearch
+
