@@ -1,6 +1,7 @@
 # vim: ft=sls:ts=2:sw=2:expandtab
 
 {% set es_version = salt['pillar.get']('elasticsearch_version', '1.5') %}
+{% set config_file = '/etc/elasticsearch/elasticsearch.yml' %}
 
 include:
   - webupd8java
@@ -11,7 +12,7 @@ elasticsearch{{ es_version }}-installer:
     - ppa: webupd8team/java
   {% elif grains['os'] == 'Debian' %}
     - humanname: WebUp8Team Java Repository
-    - name: "deb http://packages.elasticsearch.org/elasticsearch/1.5/debian stable main"
+    - name: "deb http://packages.elasticsearch.org/elasticsearch/{{ es_version }}/debian stable main"
     - dist: stable
     - file: /etc/apt/sources.list.d/elasticsearch-{{ es_version }}.list
     - keyid: D88E42B4
@@ -19,7 +20,23 @@ elasticsearch{{ es_version }}-installer:
   {% endif %}
     - require_in:
       elasticsearch: pkg.installed
-      
+
+elasticsearch-config:
+  file.blockreplace:
+    - name: {{ config_file }}
+    - marker_start: "#################################### Paths ####################################"
+    - marker_end: "#################################### Plugin ###################################"
+    - show_changes: True
+    - content: |
+        path.conf: /etc/elasticsearch
+        path.data: /var/lib/elasticsearch
+        path.work: /tmp
+        path.logs: /var/log/elasticsearch
+        path.plugins: /usr/share/elasticsearch/plugins
+    - require:
+      - pkg: elasticsearch
+    - require_in:
+      - service: elasticsearch
 
 elasticsearch:
   pkg.installed:
