@@ -35,8 +35,12 @@ elasticsearch-config:
         path.plugins: /usr/share/elasticsearch/plugins
     - require:
       - pkg: elasticsearch
-    - require_in:
-      - service: elasticsearch
+
+/etc/default/elasticsearch:
+  file.uncomment:
+    - regex: START_DAEMON
+    - require:
+      - pkg: elasticsearch
 
 elasticsearch:
   pkg.installed:
@@ -46,4 +50,7 @@ elasticsearch:
     - require:
       - sls: webupd8java
     - enable: True
+    - watch:
+      - file: {{ config_file }}
+      - file: /etc/default/elasticsearch
 
