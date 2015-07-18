@@ -5,6 +5,7 @@
 
 include:
   - webupd8java
+  - kibana
 
 elasticsearch{{ es_version }}-installer:
   pkgrepo.managed:
@@ -18,8 +19,8 @@ elasticsearch{{ es_version }}-installer:
     - keyid: D88E42B4
     - keyserver: pgp.mit.edu
   {% endif %}
-    - require_in:
-      elasticsearch: pkg.installed
+    #- require_in:
+      #elasticsearch: pkg.installed
 
 elasticsearch-config:
   file.blockreplace:
@@ -38,7 +39,7 @@ elasticsearch-config:
 
 /etc/default/elasticsearch:
   file.uncomment:
-    - regex: START_DAEMON
+    - regex: CONF_DIR
     - require:
       - pkg: elasticsearch
 
@@ -46,6 +47,9 @@ elasticsearch:
   pkg.installed:
     - require_in:
       elasticsearch: service.running
+    - version: {{ salt['pkg.latest_version']('elasticsearch') }}
+    - require:
+      - pkgrepo: elasticsearch{{ es_version }}-installer
   service.running:
     - require:
       - sls: webupd8java
