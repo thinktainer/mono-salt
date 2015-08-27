@@ -47,9 +47,9 @@ elasticsearch:
   pkg.installed:
     - require_in:
       elasticsearch: service.running
-    - version: {{ salt['pkg.latest_version']('elasticsearch') }}
     - require:
       - pkgrepo: elasticsearch{{ es_version }}-installer
+    - refresh: True
   service.running:
     - require:
       - sls: webupd8java
