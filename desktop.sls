@@ -3,4 +3,5 @@
 desktop-pkgs:
   pkg.installed:
     - pkgs:
-      - task-lxde-desktop
+      - task-gnome-desktop
+

@@ -15,6 +15,7 @@ base:
     - intellij
     - gradle
     - user
+    - erlang
 
   'node_type:scala_development':
     - match: grain

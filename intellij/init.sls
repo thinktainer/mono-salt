@@ -1,8 +1,8 @@
 # vim: syntax=yaml:ts=2:sw=2:expandtab
 
 {% set user = pillar.get('developer_user', 'vagrant') %}
-{% set intellij_archive_name = pillar.get('intellij_archive_name', 'ideaIC-14.1.tar.gz') %}
-{%set intellij_install_folder = pillar.get('intellij_install_folder', 'idea-IC-141.177.4')%}
+{% set intellij_archive_name = pillar.get('intellij_archive_name', 'ideaIU-14.1.4.tar.gz') %}
+{%set intellij_install_folder = pillar.get('intellij_install_folder', 'idea-IU-141.1532.4')%}
     
 untar_intellij:
   archive.extracted:

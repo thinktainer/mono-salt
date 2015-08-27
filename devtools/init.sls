@@ -1,5 +1,11 @@
 # vim: syntax=yaml:ts=2:sw=2:expandtab
 
+backports:
+  pkgrepo.managed:
+  - humanname: Debian backports for jessie
+  - name: "deb http://http.debian.net/debian jessie-backports main"
+  - file: /etc/apt/sources.list.d/backports.list
+
 include:
   - devtools.dotfiles
 
@@ -9,7 +15,14 @@ mypkgs:
       - vim
       - zsh
       - curl
-      - tmux
+
+tmux:
+  pkg.installed:
+    - fromrepo: jessie-backports
+    - refresh: True
+    - version: 2.0-3~bpo8+1
+    - require:
+      - pkgrepo: backports
 
 git:
   pkg.installed
