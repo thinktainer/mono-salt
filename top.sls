@@ -16,6 +16,7 @@ base:
     - gradle
     - user
     - erlang
+    - elasticsearch
 
   'node_type:scala_development':
     - match: grain
@@ -56,4 +57,14 @@ base:
     - redis
     - logstash
     - elasticsearch
+
+  'node_type:az-af':
+    - match: grain
+    - lamp
+
+  'node_type:mono':
+    - match: grain
+    - mono
+    - user
+    - devtools
 

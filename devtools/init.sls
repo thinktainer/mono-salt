@@ -3,7 +3,7 @@
 backports:
   pkgrepo.managed:
   - humanname: Debian backports for jessie
-  - name: "deb http://http.debian.net/debian jessie-backports main"
+  - name: "deb ftp://ftp.de.debian.org/debian jessie-backports main"
   - file: /etc/apt/sources.list.d/backports.list
 
 include:

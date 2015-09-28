@@ -1,6 +1,6 @@
 # vim: ft=sls:ts=2:sw=2:expandtab
 
-{% set es_version = salt['pillar.get']('elasticsearch_version', '1.5') %}
+{% set es_version = salt['pillar.get']('elasticsearch_version', '1.7') %}
 {% set config_file = '/etc/elasticsearch/elasticsearch.yml' %}
 
 include:
@@ -16,8 +16,7 @@ elasticsearch{{ es_version }}-installer:
     - name: "deb http://packages.elasticsearch.org/elasticsearch/{{ es_version }}/debian stable main"
     - dist: stable
     - file: /etc/apt/sources.list.d/elasticsearch-{{ es_version }}.list
-    - keyid: D88E42B4
-    - keyserver: pgp.mit.edu
+    - key_url: https://packages.elastic.co/GPG-KEY-elasticsearch
   {% endif %}
     #- require_in:
       #elasticsearch: pkg.installed
