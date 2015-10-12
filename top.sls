@@ -68,3 +68,7 @@ base:
     - user
     - devtools
 
+  'node_type:erlang_build':
+    - match: grain
+    - erlang
+

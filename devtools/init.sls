@@ -12,7 +12,7 @@ include:
 mypkgs:
   pkg.installed:
     - pkgs:
-      - vim
+      - vim-nox
       - zsh
       - curl
 
