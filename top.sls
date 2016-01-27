@@ -72,3 +72,25 @@ base:
     - match: grain
     - erlang
 
+  'role:dev':
+    - match: grain
+    - github
+    - oh_my_zsh
+
+  'role:docker':
+    - match: grain
+    - docker
+
+  'lang:erlang':
+    - match: grain
+    - erlang
+  
+  'lang:elixir':
+    - match: grain
+    - elixir
+
+  'lang:clojure':
+    - match: grain
+    - webupd8java
+    - lein
+

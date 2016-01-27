@@ -1,6 +1,7 @@
-include:
-  - devtools
-  - oh_my_zsh
+zsh:
+  pkg.installed:
+  - require_in:
+    - cmd: chsh -s /bin/zsh vagrant
 
 chsh -s /bin/zsh vagrant:
   cmd.run

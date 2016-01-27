@@ -1,5 +1,8 @@
 {% set known_hosts = '/etc/ssh/ssh_known_hosts' %}
 
+git:
+  pkg.installed
+
 /etc/ssh:
   file.directory:
     - user: root
@@ -27,6 +30,8 @@ ghconfig_user_name:
     - value: thinktainer
     - user: vagrant
     - is_global: True
+    - require:
+      - pkg: git
 
 ghconfig_user_email:
   git.config:
@@ -34,6 +39,8 @@ ghconfig_user_email:
     - value: m.schinz@gmail.com
     - user: vagrant
     - is_global: True
+    - require:
+      - pkg: git
 
 ghconfig_core_editor:
   git.config:
@@ -41,6 +48,8 @@ ghconfig_core_editor:
     - value: vim
     - user: vagrant
     - is_global: True
+    - require:
+      - pkg: git
 
 ghconfig_core_excludesfile:
   git.config:
@@ -48,6 +57,8 @@ ghconfig_core_excludesfile:
     - value: /home/vagrant/.gitignore
     - user: vagrant
     - is_global: True
+    - require:
+      - pkg: git
 
 /home/vagrant/.gitignore:
   file.managed:
